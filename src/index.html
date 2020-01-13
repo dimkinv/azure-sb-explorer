@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Hello World!</title>
+  </head>
+  <body class="wrapper">
+      <div class="inputs">
+        <section class="input">
+            <label for="sbListenConnectionString">Listen connection string:</label>
+            <input type="text" name="sbListenConnectionString" id="sbListenConnectionString" />
+        </section>
+        <section class="input">
+            <label for="sbSendConnectionString">Send connection string:</label>
+            <input type="text" name="sbSendConnectionString" id="sbSendConnectionString" />
+        </section>
+          <section class="input">
+            <label for="sbQueueName">Queue name:</label>
+            <input type="text" name="sbQueueName" id="sbQueueName" />
+          </section>
+          <button type="button" id="connectBtn">Connect</button>
+      </div>
+      <div class="outputs">
+        <section class="message-sender">
+          <h4>Message Editor</h4>
+          <section class="input">
+            <label for="messageName">Message name:</label>
+            <input type="text" name="messageName" id="messageName" />
+        </section>
+        <section class="input">
+          <label for="messageBody">Message body (json):</label>
+          <textarea name="messageBody" id="messageBody"></textarea>
+        </section>
+        <button id="sendMessageBtn" disabled="disabled">Send Message</button>
+        </section>
+        <section class="logger">
+          <h4>Logs</h4>
+        </section>
+      </div>
+    <!-- You can also require other files to run in this process -->
+    <script src="logger.js"></script>
+    <script src="index.js"></script>
+  </bodyclass="wrapper">
+</html>
