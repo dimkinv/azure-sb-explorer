@@ -59,8 +59,7 @@ function initiateListen(connectionString, queueName) {
   logger.log('registering message handler');
   receiver.registerMessageHandler(
     (message) => {
-      logger.log(message.body);
-      console.log(message);
+      logger.message(message.id, message.body);
     },
     (error) => {
       logger.error('error on message handler', error);
@@ -82,12 +81,12 @@ function initiateSend(connectionString, queueName) {
 
 sendMessageButton.addEventListener('click', async () => {
   const messageName = messageNameEl.value;
-  const messageBody = messageBodyEl.value;
+  const messageBody = JSON.parse(messageBodyEl.value);
 
   try {
     logger.log(`sending message, name: ${messageName}`);
     await sender.send({
-      id: messageName,
+      label: messageName,
       body: messageBody,
     });
 

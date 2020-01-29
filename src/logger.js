@@ -12,3 +12,7 @@ module.exports.error = function(message, error) {
 module.exports.log = function(message) {
   loggerEl.innerHTML += `<pre class="log">${message}</pre>`;
 };
+
+module.exports.message = (messageName, body)=>{
+  loggerEl.innerHTML += `<pre class="error">${messageName}: ${JSON.stringify(body, null, 2)}</pre>`;
+}
